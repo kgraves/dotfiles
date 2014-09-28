@@ -3,3 +3,28 @@
 	email = kyle@minted.com
 [core]
 	editor = vim
+
+[alias]
+  b = branch
+
+  c = commit
+  ca = commit --amend
+
+  co = checkout
+
+  cp = cherry-pick
+
+  b = branch
+
+  d = diff
+
+  pr = pull --rebase
+
+  sl = stash list
+  sp = stash pop
+  ss = stash save
+
+  st = status --short --branch
+
+  svnr = svn rebase
+  svnd = svn dcommit
