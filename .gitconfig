@@ -1,0 +1,5 @@
+[user]
+	name = kyle
+	email = kyle@minted.com
+[core]
+	editor = vim
