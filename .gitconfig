@@ -5,6 +5,8 @@
 	editor = vim
 
 [alias]
+  a = add
+
   b = branch
 
   c = commit
@@ -17,6 +19,8 @@
   b = branch
 
   d = diff
+
+  l = log
 
   pr = pull --rebase
 

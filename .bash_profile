@@ -1,3 +1,7 @@
+# misc aliases
+alias ll="ls -la"
+alias la="ls -a"
+
 # vagrant aliases
 alias vup="vagrant up puppet"
 alias vst="vagrant status puppet"
