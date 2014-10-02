@@ -3,9 +3,10 @@ execute pathogen#infect()
 filetype plugin indent on
 set nocompatible
 
-map <C-h> :tabp<CR>
-map <C-l> :tabn<CR>
-map <tab> %
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <tab> %
+vnoremap <tab> %
 
 " Basic Settings
 set encoding=utf-8
@@ -52,11 +53,29 @@ set textwidth=80
 " set formatoptions=qrn1j
 " set colorcolumn=+1
 
-" Color scheme
+" backups
+set backup
+set noswapfile
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
 
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+  call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+  call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+  call mkdir(expand(&directory), "p")
+endif
+
+" Color scheme
 syntax on
-" set background=dark
-colorscheme jellybeans
+colorscheme gruvbox
+set background=dark
+" colorscheme jellybeans
 
 " Use sane regexes.
 nnoremap / /\v
