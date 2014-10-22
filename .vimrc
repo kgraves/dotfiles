@@ -38,6 +38,11 @@ set title
 set colorcolumn=+1
 set nu
 
+" show listing of options in command mode
+" I was looking for this setting for a while.
+set wildmode=longest,list
+set wildmenu
+
 " Leader
 let mapleader = ","
 let maplocalleader = "\\"
@@ -73,9 +78,10 @@ endif
 
 " Color scheme
 syntax on
-colorscheme gruvbox
-set background=dark
-" colorscheme jellybeans
+" colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_termcolors=256
+colorscheme jellybeans
 
 " Use sane regexes.
 nnoremap / /\v
