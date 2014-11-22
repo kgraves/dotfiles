@@ -25,10 +25,14 @@ alias tt="fab select:dev,kyle,vagrant fab.solr.reload" # TODO might need to use 
 alias uu="fab select:dev,kyle,vagrant fab.puppet.uwsgi.restart:use_sudo=True"
 alias lgs="fab select:dev,kyle,vagrant fab.logstash.stop"
 alias lgpk="fab select:dev,kyle,vagrant fab.logstash.pkill"
-alias ss="mcd && tt && uu && lgs"
+alias ss="mcd && tt && uu"
 
 # dev tools aliases
 alias pr="post-review -g"
+
+# osx aliases
+alias showdots="defaults write com.apple.finder AppleShowAllFiles YES"
+alias hidedots="defaults write com.apple.finder AppleShowAllFiles NO"
 
 # friendlier find command
 #
