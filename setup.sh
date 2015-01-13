@@ -1,4 +1,5 @@
-# create symbolic links for dotfiles
+# copy all dot files into home directory
+# TODO look into using symbolic links
 cp .bash_profile ~
 cp .bashrc ~
 cp .gitconfig ~
