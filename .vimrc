@@ -79,9 +79,14 @@ endif
 " Color scheme
 syntax on
 " colorscheme gruvbox
-" set background=dark
 " let g:gruvbox_termcolors=256
+set background=dark
 colorscheme jellybeans
+
+" 256 colors for maximum jellybeans bling.
+if (&term =~ "xterm") || (&term =~ "screen")
+  set t_Co=256
+endif
 
 " Use sane regexes.
 nnoremap / /\v
