@@ -1,9 +1,12 @@
 # misc aliases
 alias ll="ls -la"
 alias la="ls -a"
+alias vimp="vim -p"
+alias open="xdg-open"
 
 # directory aliases
 alias gits="cd ~/Documents/gits"
+alias notes="cd ~/Documents/notes"
 
 # friendlier find command
 #
