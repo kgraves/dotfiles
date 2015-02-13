@@ -4,6 +4,10 @@
 [core]
 	editor = vim
 
+[push]
+  default = simple
+  # git config --global push.default simple
+
 [alias]
   a = add
 
