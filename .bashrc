@@ -1,4 +1,5 @@
 # misc aliases
+alias ls="ls -p"
 alias ll="ls -la"
 alias la="ls -a"
 alias vimp="vim -p"
