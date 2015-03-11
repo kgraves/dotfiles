@@ -8,6 +8,8 @@ alias chrome="/opt/google/chrome/google-chrome"
 
 # directory aliases
 alias gits="cd ~/Documents/gits"
+alias dcw="cd ~/Documents/gits/datacntr-web"
+alias dcf="cd ~/Documents/gits/datacntr-frontend"
 alias notes="cd ~/Documents/notes"
 
 # friendlier find command
