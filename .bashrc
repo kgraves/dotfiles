@@ -10,6 +10,7 @@ alias chrome="/opt/google/chrome/google-chrome"
 alias gits="cd ~/Documents/gits"
 alias dcw="cd ~/Documents/gits/datacntr-web"
 alias dcf="cd ~/Documents/gits/datacntr-frontend"
+alias smsg="cd ~/Documents/gits/scrapemesomethinggood"
 alias notes="cd ~/Documents/notes"
 
 # friendlier find command
