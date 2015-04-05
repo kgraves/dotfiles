@@ -104,6 +104,9 @@ set scrolloff=3
 set sidescroll=1
 set sidescrolloff=10
 
+" syntax for markdown files
+" autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " Nyan cat
 function! NyanMe()
     hi NyanFur             guifg=#BBBBBB

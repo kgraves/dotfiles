@@ -5,6 +5,7 @@ alias la="ls -a"
 alias vimp="vim -p"
 alias open="xdg-open"
 alias chrome="/opt/google/chrome/google-chrome"
+alias node="node-0.12.1"
 
 # directory aliases
 alias gits="cd ~/Documents/gits"
@@ -40,3 +41,9 @@ export PATH="$PATH:$HOME/npm/bin"
 export TERM=xterm-256color
 export EDITOR=vim
 export BROWSER=chrome
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# for android studio binary
+export PATH="~/android-studio/bin:$PATH"
