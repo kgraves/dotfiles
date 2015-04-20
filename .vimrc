@@ -26,6 +26,7 @@ set laststatus=2
 set history=1000
 set undofile
 set undoreload=10000
+
 " set list
 set lazyredraw
 set matchtime=3
@@ -35,6 +36,7 @@ set autowrite
 set autoread
 set shiftround
 set title
+
 " set linebreak
 set colorcolumn=+1
 set nu
@@ -49,15 +51,12 @@ let mapleader = ","
 let maplocalleader = "\\"
 
 " Tabs, spaces, wrapping
-
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set wrap
 set textwidth=80
-" set formatoptions=qrn1j
-" set colorcolumn=+1
 
 " backups
 set backup
@@ -106,6 +105,9 @@ set sidescrolloff=10
 
 " syntax for markdown files
 " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" ctrlp plugin settings
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Nyan cat
 function! NyanMe()
