@@ -13,7 +13,7 @@ alias dcw="cd ~/Documents/gits/datacntr-web"
 alias dcf="cd ~/Documents/gits/datacntr-frontend"
 alias dots="cd ~/Documents/gits/dotfiles"
 alias gits="cd ~/Documents/gits"
-alias notes="cd ~/Documents/gits/notes"
+alias notes="cd ~/Documents/gits/notes/notes"
 alias smsg="cd ~/Documents/gits/scrapemesomethinggood"
 
 # friendlier find command
