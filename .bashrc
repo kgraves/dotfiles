@@ -6,6 +6,8 @@ alias ll="ls -la"
 alias la="ls -a"
 alias node="node-0.12.1"
 alias open="xdg-open"
+# there is a rouge alias somewhere, so I need this temporary fix
+alias pip="/usr/local/bin/pip"
 alias vimp="vim -p"
 
 # directory aliases
