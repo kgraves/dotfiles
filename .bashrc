@@ -1,4 +1,5 @@
 # misc aliases
+alias aa="source ./env/bin/activate"
 alias ast="~/android-studio/bin/studio.sh"
 alias chrome="/opt/google/chrome/google-chrome"
 alias ls="ls -p --color=auto"
