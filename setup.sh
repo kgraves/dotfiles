@@ -2,6 +2,7 @@
 # TODO look into using symbolic links
 cp .bash_profile ~
 cp .bashrc ~
+cp .gemrc ~
 cp .gitconfig ~
 cp .profile ~
 cp .vimrc ~
