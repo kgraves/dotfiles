@@ -40,6 +40,7 @@ export PATH="$PATH:$HOME/npm/bin"
 
 # for rvm
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # general exports
 export TERM=xterm-256color
