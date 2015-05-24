@@ -4,6 +4,9 @@
 [core]
 	editor = vim
 
+[diff]
+  tool = vimdiff
+
 [push]
   default = simple
   # git config --global push.default simple
