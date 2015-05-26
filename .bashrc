@@ -38,10 +38,6 @@ function utar { tar xvzf "$1"; }
 # NOTE: This is paired with `npm config set prefix ~/npm`
 export PATH="$PATH:$HOME/npm/bin"
 
-# for rvm
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # general exports
 export TERM=xterm-256color
 export EDITOR=vim
@@ -55,3 +51,8 @@ export JAVA_HOME="/usr/lib/jvm/java-8-oracle/jre/bin/java"
 
 # for android studio binary
 export PATH="$PATH:$HOME/android-studio/bin"
+
+# for rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
