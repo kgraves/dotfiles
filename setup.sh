@@ -10,5 +10,8 @@ cp .profile ~
 cp .tundra ~
 cp .vimrc ~
 
+# root needs to own this file
+sudo cp rc.local /etc/rc.local
+
 # since I'm running linux, I don't need mjolnir
 # cp -r .mjolnir ~
