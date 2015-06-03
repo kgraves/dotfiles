@@ -17,6 +17,7 @@ alias dcf="cd ~/Documents/gits/datacntr-frontend"
 alias dots="cd ~/Documents/gits/dotfiles"
 alias gits="cd ~/Documents/gits"
 alias notes="cd ~/Documents/gits/notes/notes"
+alias ph="cd ~/Documents/gits/ph-ecom-web"
 alias smsg="cd ~/Documents/gits/scrapemesomethinggood"
 
 # friendlier find command
