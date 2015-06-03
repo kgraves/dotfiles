@@ -39,6 +39,9 @@ function utar { tar xvzf "$1"; }
 # NOTE: This is paired with `npm config set prefix ~/npm`
 export PATH="$PATH:$HOME/npm/bin"
 
+# add project level node modules to path
+export PATH="$PATH:./node_modules/.bin"
+
 # general exports
 export TERM=xterm-256color
 export EDITOR=vim
