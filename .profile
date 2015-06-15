@@ -22,3 +22,13 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# use alsactl to restore audio levels
+#
+# For some reason my headphones settings were being wiped on boott, and further,
+# my headphones were being muted on every boot. This should take care of that
+# problem.
+#
+# NOTE: to generate a new state file run:
+#   `alsactl --file ~/.alsa.state store
+alsactl --file ~/.alsa.state restore
