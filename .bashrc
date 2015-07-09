@@ -2,6 +2,7 @@
 alias aa="source ./env/bin/activate"
 alias ast="~/android-studio/bin/studio.sh"
 alias chrome="/opt/google/chrome/google-chrome"
+alias gg="gulp"
 alias ls="ls -p --color=auto"
 alias ll="ls -la"
 alias la="ls -a"
