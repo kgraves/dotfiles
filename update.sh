@@ -8,3 +8,6 @@ cp ~/.npmrc .
 cp ~/.profile .
 cp ~/.tundra .
 cp ~/.vimrc .
+cp ~/.zshrc .
+cp ~/.zsh-update .
+cp ~/.zshrc.pre-oh-my-zsh .

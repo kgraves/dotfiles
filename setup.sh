@@ -9,6 +9,9 @@ cp .npmrc ~
 cp .profile ~
 cp .tundra ~
 cp .vimrc ~
+cp .zshrc ~
+cp .zsh-update ~
+cp .zshrc.pre-oh-my-zsh ~
 
 # since I'm running linux, I don't need mjolnir
 # cp -r .mjolnir ~

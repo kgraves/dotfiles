@@ -11,6 +11,7 @@ alias npm="~/npm/bin/npm"
 alias open="xdg-open"
 # there is a rouge alias somewhere, so I need this temporary fix
 alias pip="/usr/local/bin/pip"
+alias rn="/bin/systemctl restart network-manager.service"
 alias vimp="vim -p"
 
 # directory aliases
