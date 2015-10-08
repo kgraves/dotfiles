@@ -26,6 +26,7 @@ set laststatus=2
 set history=1000
 set undofile
 set undoreload=10000
+set nofoldenable
 
 " set list
 set lazyredraw
