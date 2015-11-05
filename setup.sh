@@ -5,7 +5,6 @@ cp .bash_profile ~
 cp .bashrc ~
 cp .gemrc ~
 cp .gitconfig ~
-cp .npmrc ~
 cp .profile ~
 cp .tundra ~
 cp .vimrc ~
