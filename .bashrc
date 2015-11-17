@@ -2,14 +2,13 @@
 alias aa="source ./env/bin/activate"
 alias ast="~/android-studio/bin/studio.sh"
 alias chrome="/opt/google/chrome/google-chrome"
+alias da="deactivate"
 alias flux="xflux -z 94608"
 alias gg="gulp"
 alias ls="ls -p --color=auto"
 alias ll="ls -la"
 alias la="ls -a"
 alias open="xdg-open"
-# there is a rouge alias somewhere, so I need this temporary fix
-alias pip="/usr/local/bin/pip"
 alias rn="/bin/systemctl restart network-manager.service"
 alias vimp="vim -p"
 

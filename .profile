@@ -31,4 +31,4 @@ fi
 #
 # NOTE: to generate a new state file run:
 #   `alsactl --file ~/.alsa.state store
-alsactl --file ~/.alsa.state restore
+# alsactl --file ~/.alsa.state restore
