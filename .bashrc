@@ -10,6 +10,7 @@ alias ll="ls -la"
 alias la="ls -a"
 alias open="xdg-open"
 alias rn="/bin/systemctl restart network-manager.service"
+alias snd="alsactl --file ~/.alsa.state restore"
 alias vimp="vim -p"
 
 # directory aliases
@@ -62,3 +63,5 @@ export PATH=$PATH:$GOROOT/bin
 # TODO this is temporary. Only using this for algorithm repo
 export GOPATH=$HOME/Documents/gits/algorithms
 
+# for pebble development
+export PATH=~/pebble-dev/pebble-sdk-4.0-linux64/bin:$PATH
