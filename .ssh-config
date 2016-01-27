@@ -1,4 +1,4 @@
 # PH prod server
-Host phprod
+Host ph
     HostName 52.26.134.37
     User kg
