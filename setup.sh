@@ -6,6 +6,7 @@ cp .bashrc ~
 cp .gemrc ~
 cp .gitconfig ~
 cp .profile ~
+cp .ssh-config ~/.ssh/config
 cp .tundra ~
 cp .vimrc ~
 cp .zshrc ~
