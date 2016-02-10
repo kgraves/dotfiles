@@ -2,3 +2,8 @@
 Host ph
     HostName 52.26.134.37
     User kg
+
+# mayan stage server
+Host mayan
+    HostName 74.100.82.12
+    User kgraves
