@@ -1,5 +1,5 @@
 # misc aliases
-alias aa="source ./env/bin/activate"
+alias aa="source ./venv/bin/activate"
 alias ast="~/android-studio/bin/studio.sh"
 alias chrome="/opt/google/chrome/google-chrome"
 alias da="deactivate"
@@ -15,6 +15,7 @@ alias snd="alsactl --file ~/.alsa.state restore"
 alias vimp="vim -p"
 
 # directory aliases
+alias ctci="cd ~/Documents/gits/ctci"
 alias dcw="cd ~/Documents/gits/datacntr-web"
 alias dcf="cd ~/Documents/gits/datacntr-frontend"
 alias dots="cd ~/Documents/gits/dotfiles"
@@ -33,9 +34,18 @@ function ff { find . -name "*$@*"; }
 function utar { tar xvzf "$1"; }
 
 # general exports
-export TERM=xterm-256color
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+  export TERM='xterm-256color'
+else
+  export TERM='xterm-color'
+fi
 export EDITOR=vim
 export BROWSER=chrome
+
+# --------------------------
+# export DIR_COLORS="$HOME/.dircolors"
+eval "`dircolors -b ~/.dircolors`"
+# --------------------------
 
 # for nvm
 export NVM_DIR="/home/kg/.nvm"

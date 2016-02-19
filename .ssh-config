@@ -3,6 +3,10 @@ Host ph
     HostName 52.26.134.37
     User kg
 
+Host edms
+    HostName 52.35.178.169
+    User kgraves
+
 # mayan stage server
 Host mayan
     HostName 74.100.82.12

@@ -4,6 +4,7 @@ cp ~/.bash_profile .
 cp ~/.bashrc .
 cp ~/.gemrc .
 cp ~/.gitconfig .
+cp ~/.nvmrc .
 cp ~/.profile .
 cp ~/.ssh/config ./.ssh-config
 cp ~/.tundra .
