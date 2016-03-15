@@ -7,6 +7,7 @@ cp .gemrc ~
 cp .gitconfig ~
 cp .nvmrc ~
 cp .profile ~
+cp .sqliterc ~/.sqliterc
 cp .ssh-config ~/.ssh/config
 cp .tundra ~
 cp .vimrc ~
