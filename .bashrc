@@ -70,9 +70,7 @@ eval "$(rbenv init -)"
 # directory.
 export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
-# export GOPATH=$HOME/Documents/gits/golang
-# TODO this is temporary. Only using this for algorithm repo
-export GOPATH=$HOME/Documents/gits/algorithms
+export GOPATH=$HOME/Documents/gits/golang
 
 # for pebble development
 export PATH=~/pebble-dev/pebble-sdk-4.0-linux64/bin:$PATH
