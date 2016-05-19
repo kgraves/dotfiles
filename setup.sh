@@ -3,6 +3,7 @@
 cp .alsa.state ~
 cp .bash_profile ~
 cp .bashrc ~
+sudo cp rc.local /etc/rc.local
 cp .gemrc ~
 cp .gitconfig ~
 cp .nvmrc ~

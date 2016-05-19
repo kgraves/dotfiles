@@ -2,6 +2,7 @@
 cp ~/.alsa.state .
 cp ~/.bash_profile .
 cp ~/.bashrc .
+cp /etc/rc.local .
 cp ~/.gemrc .
 cp ~/.gitconfig .
 cp ~/.nvmrc .
