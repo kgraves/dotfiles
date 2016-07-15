@@ -74,3 +74,6 @@ export GOPATH=$HOME/Documents/gits/golang
 
 # for pebble development
 export PATH=~/pebble-dev/pebble-sdk-4.0-linux64/bin:$PATH
+
+# for rust
+export PATH="$HOME/.cargo/bin:$PATH"
