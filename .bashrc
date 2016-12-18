@@ -47,6 +47,9 @@ export BROWSER=chrome
 eval "`dircolors -b ~/.dircolors`"
 # --------------------------
 
+# for home bin folder
+export PATH="$PATH:$HOME/bin"
+
 # for nvm
 export NVM_DIR="/home/kg/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

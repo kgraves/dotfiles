@@ -11,3 +11,8 @@ Host edms
 Host mayan
     HostName 74.100.82.12
     User kgraves
+
+# Host bitbucket.org
+    # HostName bitbucket.org
+    # IdentityFile ~/.ssh/deployment
+    # User git
