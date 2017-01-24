@@ -4,15 +4,16 @@ Host ph
     User kg
 
 Host edms
-    HostName 52.35.178.169
-    User kgraves
+    HostName 35.165.222.218
+    IdentityFile ~/.ssh/id_rsa
+    User kg
+
+Host edms-ubuntu
+    HostName 35.165.222.218
+    IdentityFile ~/.ssh/kyle-mayan-edms.pem
+    User ubuntu
 
 # mayan stage server
 Host mayan
     HostName 74.100.82.12
     User kgraves
-
-# Host bitbucket.org
-    # HostName bitbucket.org
-    # IdentityFile ~/.ssh/deployment
-    # User git

@@ -5,6 +5,8 @@ set nocompatible
 
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-l> :tabn<CR>
+nnoremap <C-j> :tabm-1<CR>
+nnoremap <C-k> :tabm+1<CR>
 nnoremap <C-t> :tabe 
 nnoremap <tab> %
 vnoremap <tab> %
