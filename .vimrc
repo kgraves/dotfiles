@@ -80,12 +80,14 @@ if !isdirectory(expand(&directory))
 endif
 
 " Color scheme
-syntax on
-set background=dark
 " 256 colors for maximum jellybeans bling.
 if (&term =~ "xterm") || (&term =~ "screen")
   set t_Co=256
 endif
+set t_Co=256
+syntax on
+set background=dark
+
 colorscheme jellybeans
 
 " Use sane regexes.

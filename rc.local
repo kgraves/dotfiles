@@ -13,12 +13,12 @@
 
 # set the screen brightness to half.
 # for some reason ubuntu doesn't want to remember my brightness settings.
-echo 468 > /sys/class/backlight/intel_backlight/brightness
+# echo 468 > /sys/class/backlight/intel_backlight/brightness
 
 # turn bluetooth off by default
 # rfkill block bluetooth
 
 # turn keyboard backlight off on startup
-echo '0' > /sys/devices/platform/dell-laptop/leds/dell::kbd_backlight/brightness
+# echo '0' > /sys/devices/platform/dell-laptop/leds/dell::kbd_backlight/brightness
 
 exit 0
