@@ -53,6 +53,9 @@ set wildmenu
 let mapleader = ","
 let maplocalleader = "\\"
 
+" status line
+set statusline=%!BuildStatusLine()
+
 " Tabs, spaces, wrapping
 set tabstop=2
 set shiftwidth=2
@@ -107,3 +110,29 @@ set sidescrolloff=10
 
 " ctrlp plugin settings
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" status line
+" (https://github.com/mcantor/dotfiles/blob/master/vim/.vimrc)
+function! BuildStatusLine()
+    let statusline = ""
+    " Filename (F -> full, f -> relative)
+    let statusline .= "%f"
+    " Buffer flags
+    let statusline .= "%( %h%1*%m%*%r%w%) "
+    " File format and type
+    let statusline .= "(%{&ff}%(\/%Y%))"
+
+    " Left/right separator
+    let statusline .= "%="
+
+    " Line & column
+    let statusline .= "(%l,%c%V) "
+    " Character under cursor (decimal)
+    let statusline .= "%03.3b "
+    " Character under cursor (hexadecimal)
+    let statusline .= "0x%02.2B "
+    " File progress
+    let statusline .= "| %P/%L"
+
+    return statusline
+endfunction
