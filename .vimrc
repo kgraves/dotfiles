@@ -111,6 +111,13 @@ set sidescrolloff=10
 " ctrlp plugin settings
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" syntastic settings
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_auto_jump = 1
+
 " status line
 " (https://github.com/mcantor/dotfiles/blob/master/vim/.vimrc)
 function! BuildStatusLine()
@@ -121,6 +128,11 @@ function! BuildStatusLine()
     let statusline .= "%( %h%1*%m%*%r%w%) "
     " File format and type
     let statusline .= "(%{&ff}%(\/%Y%))"
+
+    " syntastic error messages
+    let statusline .= "%#warningmsg#"
+    let statusline .= "%{SyntasticStatuslineFlag()}"
+    let statusline .= "%*"
 
     " Left/right separator
     let statusline .= "%="
