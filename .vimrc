@@ -3,6 +3,7 @@ execute pathogen#infect()
 filetype plugin indent on
 set nocompatible
 
+" mappings
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :tabm-1<CR>
@@ -10,6 +11,8 @@ nnoremap <C-k> :tabm+1<CR>
 nnoremap <C-t> :tabe 
 nnoremap <tab> %
 vnoremap <tab> %
+" Executes the current line in a shell, then replaces that with the results.
+nnoremap Q !!sh<CR>
 
 " Basic Settings
 set encoding=utf-8
@@ -84,9 +87,9 @@ endif
 
 " Color scheme
 " 256 colors for maximum jellybeans bling.
-if (&term =~ "xterm") || (&term =~ "screen")
-  set t_Co=256
-endif
+" if (&term =~ "xterm") || (&term =~ "screen")
+  " set t_Co=256
+" endif
 set t_Co=256
 syntax on
 set background=dark

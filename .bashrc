@@ -81,3 +81,62 @@ export PATH=~/pebble-dev/pebble-sdk-4.0-linux64/bin:$PATH
 
 # for rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# A function to be runned by bash that constructs a prompt command.
+function construct_prompt () {
+  local user="$USER"
+  # gets just the current directory name
+  # source: http://stackoverflow.com/a/1371283
+  local curr_dir="${PWD##*/}"
+  local git_text=""
+
+  # set some colors to be used in the prompt
+  local GREEN="\[\033[0;32m\]"
+  local CYAN="\[\033[0;36m\]"
+  local BCYAN="\[\033[1;36m\]"
+  local BLUE="\[\033[0;34m\]"
+  local GRAY="\[\033[0;37m\]"
+  local DKGRAY="\[\033[1;30m\]"
+  local WHITE="\[\033[1;37m\]"
+  local RED="\[\033[0;31m\]"
+  local YELLOW="\[\033[1;33m\]"
+  # return color to Terminal setting for text color
+  local DEFAULT="\[\033[0;39m\]"
+
+  # construct git repo text
+  if is_in_git_repo; then
+    # git branch name
+    local branch_name=$(get_git_branch_name)
+
+    # git status info
+    local status_text=$(get_git_status_text)
+
+    # construct final git_text variable
+    git_text=" (${GREEN}$branch_name${YELLOW}$status_text${DEFAULT})"
+  fi
+
+  # export everything as PS1
+  # format: "[USER]> CURR_DIR (BRANCH: !?!)"
+  export PS1="${BCYAN}[\u]${DEFAULT} $curr_dir$git_text $ "
+}
+
+function is_in_git_repo () {
+  git rev-parse --git-dir > /dev/null 2> /dev/null;
+}
+
+function get_git_branch_name () {
+  git branch | cut -d ' ' -f 2
+}
+
+function get_git_status_text () {
+  local lines=$(git status --short | wc -l)
+  if [[ lines -gt 0 ]]; then
+    # TODO try to get lightning bolt working (
+    # echo -e " \xE2\x9A\xA1"
+    # echo " ⚡"
+    echo " !?!"
+  fi
+}
+
+# set bash variable so this is called
+PROMPT_COMMAND=construct_prompt
