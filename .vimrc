@@ -86,16 +86,18 @@ if !isdirectory(expand(&directory))
 endif
 
 " Color scheme
+set t_Co=256
+syntax on
+let g:seoul256_background = 233
+colorscheme seoul256
+set background=dark
+
+" TODO add xterm-256color in if statement
 " 256 colors for maximum jellybeans bling.
 " if (&term =~ "xterm") || (&term =~ "screen")
   " set t_Co=256
 " endif
-set t_Co=256
-syntax on
-set background=dark
-
-colorscheme jellybeans
-
+"
 " Use sane regexes.
 nnoremap / /\v
 vnoremap / /\v
@@ -151,3 +153,18 @@ function! BuildStatusLine()
 
     return statusline
 endfunction
+
+"""""""""""""""""""""""""""""""""""""
+" Vimscript The Hard Way test stuff "
+"""""""""""""""""""""""""""""""""""""
+
+" caps a whole word
+nnoremap <leader>u viwU
+
+" open vimrc in a split, and source
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" insert mode abbreviations for correcting common spelling mistakes
+iabbrev adn and
+iabbrev @@ this is an expanded region
