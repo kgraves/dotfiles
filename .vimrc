@@ -86,18 +86,19 @@ if !isdirectory(expand(&directory))
 endif
 
 " Color scheme
-set t_Co=256
+
+" 256 colors for maximum bling.
+if (&term =~ "xterm") || (&term =~ "screen")
+  set t_Co=256
+endif
+
+set termguicolors " added for nvim color support
 syntax on
+
 let g:seoul256_background = 233
 colorscheme seoul256
 set background=dark
 
-" TODO add xterm-256color in if statement
-" 256 colors for maximum jellybeans bling.
-" if (&term =~ "xterm") || (&term =~ "screen")
-  " set t_Co=256
-" endif
-"
 " Use sane regexes.
 nnoremap / /\v
 vnoremap / /\v

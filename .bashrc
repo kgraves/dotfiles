@@ -33,19 +33,12 @@ function ff { find . -name "*$@*"; }
 # friendlier tar command
 function utar { tar xvzf "$1"; }
 
-# general exports
-export TERM='xterm-256color'
-# if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-  # export TERM='xterm-256color'
-# else
-  # export TERM='xterm-color'
-# fi
 export EDITOR=vim
 export BROWSER=chrome
 
 # --------------------------
 # export DIR_COLORS="$HOME/.dircolors"
-eval "`dircolors -b ~/.dircolors`"
+# eval "`dircolors -b ~/.dircolors`"
 # --------------------------
 
 # for home bin folder
