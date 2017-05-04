@@ -75,6 +75,9 @@ export PATH=~/pebble-dev/pebble-sdk-4.0-linux64/bin:$PATH
 # for rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# for node
+export PATH="./node_modules/.bin:$PATH"
+
 # A function to be runned by bash that constructs a prompt command.
 function construct_prompt () {
   local user="$USER"
