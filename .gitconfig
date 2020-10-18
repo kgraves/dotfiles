@@ -1,8 +1,9 @@
 [user]
-	name = kg
-	email = kylgrvs@gmail.com
+  name = kg
+  email = kyle@easypost.com
 [core]
-	editor = vim
+  editor = vim
+  excludesfile = ~/.gitignore_global
 
 [diff]
   tool = vimdiff
@@ -23,11 +24,22 @@
 
   cp = cherry-pick
 
-  b = branch
-
   d = diff
+  # remove local and remote branch
+  db = !sh -c 'git push origin :`whoami`/$0 && git br -d `whoami`/$0'
+  # delete merged branches
+  dmb = !sh -c 'git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d' -
+  # delete tag
+  dt = !sh -c 'git tag -d "$0" && git push origin :refs/tags/$0'
 
   l = log
+  # git log with graph
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+
+  # new local branch and matching remote branch with your name prefixed
+  nb = !sh -c 'git push origin HEAD:`whoami`/$0 && git checkout -t origin/`whoami`/$0'
+  # new tag
+  nt = !sh -c 'git tag $0 -am \"$1\" && git push --tags origin'
 
   pr = pull --rebase
 
@@ -39,3 +51,8 @@
 
   svnr = svn rebase
   svnd = svn dcommit
+
+  # uncommit / undo commit
+  uc = reset --soft HEAD^
+  # unstage changes / undo stage
+  us = reset HEAD

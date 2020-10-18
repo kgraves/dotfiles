@@ -1,19 +1,21 @@
 # dotfiles
-Conatins all of my configuration and dotfiles.
+Contains all of my config files.
+
+NOTE: this will replace existing files with a symlink. Before using this,
+please make a backup of all files that will be touched.
 
 ### setup
 ```bash
 cd /path/to/git/repos
-git clone git@github.com:kgraves/dotfiles.git
+git clone [REPO]
 cd dotfiles
-source setup.sh
+./setup.sh
 ```
+NOTE: running `./setup.sh` will unlink any previously linked files that are
+configured, so make sure this is what you want before running.
 
 ### management
-To update the repo with changes:
-```bash
-cd /path/to/git/repos/dotfiles
-source update.sh
-git -a commit
-git push
-```
+It's simple, just two things to remember:
+1. If you need to make edits, make them within this repo. All "installed" files
+   will be kept up to date.
+2. If you pull down changes, run the same steps in the "setup" above.

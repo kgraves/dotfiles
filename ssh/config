@@ -1,0 +1,31 @@
+Host */*
+    ProxyCommand ssh -qax $(dirname %h) nc6 -q 1 -w 1 $(basename %h) %p
+
+Host admin
+    # User YOUR_USER_NAME_HERE
+    HostName admin.easypo.net
+    ForwardAgent yes
+
+Host *.easypo.net
+    # User YOUR_USER_NAME_HERE
+    ForwardAgent yes
+
+Host *sj
+    # User YOUR_USER_NAME_HERE
+    ForwardAgent yes
+    ProxyCommand ssh -qax admin nc6 -q 1 -w 1 %h %p
+
+Host *wdc
+    # User YOUR_USER_NAME_HERE
+    ForwardAgent yes
+    ProxyCommand ssh -qax admin nc6 -q 1 -w 1 %h %p
+
+Host *
+    VisualHostKey yes
+    UserKnownHostsFile ~/.ssh/known_hosts
+    SendEnv TZ
+    ServerAliveInterval 180
+    ForwardAgent no
+    UseRoaming no
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa

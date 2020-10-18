@@ -1,9 +1,0 @@
-gem: --no-ri --no-rdoc --user-install
-gemhome: /home/kg/.gem
-gempath:
-  - ./vendor/bundle/ruby/2.1.0/gems
-  - /var/lib/gems/2.1.0
-install: --no-document
-sources:
-  - http://rubygems.org/
-update: --no-document
