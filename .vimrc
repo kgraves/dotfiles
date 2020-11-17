@@ -13,7 +13,8 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }  "should be able to remove this b/c ripgrep, need to configure
+Plug 'junegunn/fzf' "should be able to remove this b/c ripgrep, need to configure
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }  "should be able to remove this b/c ripgrep, need to configure
 Plug 'junegunn/fzf.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'editorconfig/editorconfig-vim'
@@ -31,15 +32,15 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/seoul256.vim' "not enough color variety in some cases
 Plug 'morhetz/gruvbox'
-Plug 'haishanh/night-owl.vim' "too blue
-Plug 'nikitavoloboev/vim-monokai-night' "a little bright, and erases indent guides
-Plug 'AlessandroYorba/Alduin' "too much white and yellow
-Plug 'yorickpeterse/happy_hacking.vim' "too little highlighting
-Plug 'ajmwagar/vim-deus' "background too bright
-Plug 'ayu-theme/ayu-vim' "like but needs indent guides colored
-Plug 'gruvbox-material/vim' "too much color
-Plug 'kooparse/vim-color-desert-night' "like but may need some more highlighting
-Plug 'jaywilliams/vim-vwilight'
+"Plug 'haishanh/night-owl.vim' "too blue
+"Plug 'nikitavoloboev/vim-monokai-night' "a little bright, and erases indent guides
+"Plug 'AlessandroYorba/Alduin' "too much white and yellow
+"Plug 'yorickpeterse/happy_hacking.vim' "too little highlighting
+"Plug 'ajmwagar/vim-deus' "background too bright
+"Plug 'ayu-theme/ayu-vim' "like but needs indent guides colored
+"Plug 'gruvbox-material/vim' "too much color
+"Plug 'kooparse/vim-color-desert-night' "like but may need some more highlighting
+"Plug 'jaywilliams/vim-vwilight'
 Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
@@ -179,18 +180,24 @@ let g:indent_guides_guide_size = 1
 "fzf + fzf.vim settings
 
 " use rg instead of fzf
-"let $FZF_DEFAULT_COMMAND = "rg --files --no-ignore --hidden --follow"
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
+"let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
 
 " bindings for opening files
+" https://github.com/junegunn/fzf.vim/issues/435#issuecomment-511044747
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-t': 'tab drop',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 " default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
+
+" Empty value to disable preview window altogether
+let g:fzf_preview_window = []
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
 
 
 " #################

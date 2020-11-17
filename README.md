@@ -19,3 +19,7 @@ It's simple, just two things to remember:
 1. If you need to make edits, make them within this repo. All "installed" files
    will be kept up to date.
 2. If you pull down changes, run the same steps in the "setup" above.
+
+### TODOs
+- split out scripts; one script for each env
+- automate vim setup (install vim-plug, compile tags lib, install fzf if needed, etc)

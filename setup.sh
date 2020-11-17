@@ -24,12 +24,14 @@ ln -snf $PWD/.gitignore_global $INSTALL_DIR/.gitignore_global
 ln -snf $PWD/.sqliterc $INSTALL_DIR/.sqliterc
 ln -snf $PWD/.vimrc $INSTALL_DIR/.vimrc
 
-mkdir -p $INSTALL_DIR/.ssh
-ln -snf $PWD/ssh/config $INSTALL_DIR/.ssh/config
-# will inherit dir permissions, which ssh gets mad about
-chmod 644 $INSTALL_DIR/.ssh/config
+# TODO this is only needed on my host machine, but other stuff for my dev env.
+#      I'm thinking about splitting this out into different scripts for different envs.
+# mkdir -p $INSTALL_DIR/.ssh
+# ln -snf $PWD/ssh/config $INSTALL_DIR/.ssh/config
+# # will inherit dir permissions, which ssh gets mad about
+# chmod 644 $INSTALL_DIR/.ssh/config
 
 # TODO won't hurt anything as-is, but could be os specific
 mkdir -p $INSTALL_DIR/.config
-ln -snf $PWD/config/redshift.conf $INSTALL_DIR/.config/redshift.conf
+# ln -snf $PWD/config/redshift.conf $INSTALL_DIR/.config/redshift.conf
 ln -snf $PWD/config/nvim/ $INSTALL_DIR/.config/nvim
