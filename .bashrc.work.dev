@@ -1,0 +1,63 @@
+# misc aliases and functions
+alias la="ls -a"
+alias vp="vim -p"
+alias np="nvim -p"
+
+
+# work specific aliases and functions
+### python specific
+alias aa="source ./venv/bin/activate"
+alias da="deactivate"
+alias py3="/opt/python3.9/bin/python"
+alias py39="/opt/python3.9/bin/python"
+alias py38="/opt/python3.8/bin/python"
+alias py37="/opt/python3.7/bin/python"
+alias vpy="venv/bin/python"
+
+function pt() {
+  if [ $# -eq 0 ]
+  then
+    withenv venv/bin/py.test test
+  else
+    withenv venv/bin/py.test test -k "$@"
+  fi
+}
+
+
+### ruby specific
+alias rails="withenv vendor/bundle/bundle exec rails s"
+
+function rspec() {
+  # TODO will need to check for other ruby services, invoke rspec differently
+  withenv vendor/bundle/bundle exec rspec "$@"
+}
+
+function cop() {
+  withenv vendor/bundle/bundle exec rake easycop:phab "$@"
+}
+
+
+# directory aliases
+alias gg="~/gits"
+alias ep="~/gits/easy_post"
+alias notes="cd ~/Documents/gits/notes/notes"
+
+
+# friendlier find command
+#
+# ex: ff some_code*
+function ff {
+  find . -name "*$@*";
+}
+
+# friendlier tar command
+function utar {
+  tar xvzf "$1";
+}
+
+if command -v nvim &> /dev/null
+then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi

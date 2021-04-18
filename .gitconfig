@@ -8,6 +8,12 @@
 [diff]
   tool = vimdiff
 
+[pull]
+  rebase = false
+  # hint:   git config pull.rebase false  # merge (the default strategy)
+  # hint:   git config pull.rebase true   # rebase
+  # hint:   git config pull.ff only       # fast-forward only
+
 [push]
   default = simple
   # git config --global push.default simple

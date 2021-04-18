@@ -12,7 +12,6 @@
 
 # friendlier find command
 #
-# this supports bare words.
 # ex: ff some_code*
 # function ff { find . -name "*$@*"; }
 

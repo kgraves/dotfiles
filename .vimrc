@@ -41,7 +41,9 @@ Plug 'morhetz/gruvbox'
 "Plug 'gruvbox-material/vim' "too much color
 "Plug 'kooparse/vim-color-desert-night' "like but may need some more highlighting
 "Plug 'jaywilliams/vim-vwilight'
-Plug 'sainnhe/gruvbox-material'
+"Plug 'sainnhe/gruvbox-material'
+Plug 'habamax/vim-gruvbit'
+Plug 'lifepillar/vim-gruvbox8'
 
 call plug#end()
 
@@ -58,6 +60,9 @@ nnoremap <tab> %
 vnoremap <tab> %
 " execute current line in shell, replace with results
 nnoremap Q !!sh<CR>
+" iterm thank you (vim only)
+vnoremap <leader>C :'<,'>w !it2copy<CR><CR>
+nnoremap <leader>C :w !it2copy<CR><CR>
 
 
 " Basic Settings
@@ -130,28 +135,29 @@ endif
 
 " Color scheme
 
-" TODO it looks like this might be important. Keep this around
-" 256 colors for maximum bling.
-" if (&term =~ "xterm") || (&term =~ "screen")  " sensible.vim
-  " set t_Co=256  " sensible.vim
-" endif  " sensible.vim
+"TODO it looks like this might be important. Keep this around
+"256 colors for maximum bling.
+"if (&term =~ "xterm") || (&term =~ "screen")  " sensible.vim
+"set t_Co=256  " sensible.vim
+"endif  " sensible.vim
 
-set termguicolors " added for nvim color support
-" set t_ut= " clearing uses current background color
+set termguicolors "added for nvim color support
+"set t_ut= " clearing uses current background color
 
-" For Neovim 0.1.3 and 0.1.4
-" (from night-owl.vim readme)
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-"colorscheme gruvbox
-let g:gruvbox_material_background = 'hard'  "suggested for gruvbox-material
-let g:gruvbox_contrast_dark = 'hard'
-
-colorscheme gruvbox-material
-"colorscheme gruvbox
+"For Neovim 0.1.3 and 0.1.4
+"(from night-owl.vim readme)
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set background=dark
 
+colorscheme gruvbox
+"let g:gruvbox_material_background = 'hard'  "suggested for gruvbox-material
+"let g:gruvbox_contrast_dark = 'hard'
+
+"colorscheme gruvbox-material
+"colorscheme gruvbox
+"colorscheme gruvbit
+"colorscheme gruvbox8
 
 
 " Use sane regexes.
@@ -166,10 +172,10 @@ set hlsearch " highlight search matches
 set gdefault " sets 'g' flag automatically for substitutions
 
 
-" nerdtree settings
+"nerdtree settings
 "
-" auto open drawer for all tabs/windows
-autocmd BufWinEnter * NERDTreeMirror
+"auto open drawer for all tabs/windows
+"autocmd BufWinEnter * NERDTreeMirror
 
 " vim-indent-guides settings
 let g:indent_guides_enable_on_vim_startup = 1
@@ -180,7 +186,9 @@ let g:indent_guides_guide_size = 1
 "fzf + fzf.vim settings
 
 " use rg instead of fzf
-"let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow"
+"let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow --color=never"
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow --glob '!vendor/cache'"
+"let $FZF_DEFAULT_COMMAND = "rg --column --line-number --no-heading --color=always --smart-case"
 
 " bindings for opening files
 " https://github.com/junegunn/fzf.vim/issues/435#issuecomment-511044747
@@ -212,6 +220,8 @@ let test#vim#term_position = "belowright"
 let test#strategy = 'neovim'
 let test#python#runner = 'pytest'
 let test#python#pytest#executable = 'withenv venv/bin/pytest'
+let test#ruby#runner = 'rspec'
+let test#ruby#rspec#executable = 'withenv vendor/bundle/bundle exec rspec'
 
 " mappings
 nnoremap <leader>tn :TestNearest<CR>
@@ -271,6 +281,7 @@ function! BuildStatusLine()
 
     return statusline
 endfunction
+
 
 """""""""""""""""""""""""""""""""""""
 " Vimscript The Hard Way test stuff "
