@@ -27,6 +27,7 @@ ln -snf $PWD/.gitconfig $INSTALL_DIR/.gitconfig
 ln -snf $PWD/.gitignore_global $INSTALL_DIR/.gitignore_global
 ln -snf $PWD/.sqliterc $INSTALL_DIR/.sqliterc
 ln -snf $PWD/.vimrc $INSTALL_DIR/.vimrc
+ln -snf $PWD/.pryrc $INSTALL_DIR/.pryrc
 
 # TODO this is only needed on my host machine, but other stuff for my dev env.
 #      I'm thinking about splitting this out into different scripts for different envs.
