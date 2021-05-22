@@ -19,6 +19,10 @@ else
   echo "skipping .bashrc, a non-symlink already exists"
 fi
 
+# source these from existing or own .bashrc
+ln -snf $PWD/.bashrc.personal $INSTALL_DIR/.bashrc.personal
+ln -snf $PWD/.bashrc.work.dev $INSTALL_DIR/.bashrc.work.dev
+
 ln -snf $PWD/.gitconfig $INSTALL_DIR/.gitconfig
 ln -snf $PWD/.gitignore_global $INSTALL_DIR/.gitignore_global
 ln -snf $PWD/.sqliterc $INSTALL_DIR/.sqliterc

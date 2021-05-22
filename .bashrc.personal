@@ -78,7 +78,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # for node
 export PATH="./node_modules/.bin:$PATH"
 
-# A function to be runned by bash that constructs a prompt command.
+# constructs a prompt command with git repo info.
 function construct_prompt () {
   local user="$USER"
   # gets just the current directory name

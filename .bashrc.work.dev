@@ -8,10 +8,10 @@ alias np="nvim -p"
 ### python specific
 alias aa="source ./venv/bin/activate"
 alias da="deactivate"
-alias py3="/opt/python3.9/bin/python"
-alias py39="/opt/python3.9/bin/python"
-alias py38="/opt/python3.8/bin/python"
-alias py37="/opt/python3.7/bin/python"
+alias py3="/opt/python3.9/bin/python3"
+alias py39="/opt/python3.9/bin/python3"
+alias py38="/opt/python3.8/bin/python3"
+alias py37="/opt/python3.7/bin/python3"
 alias vpy="venv/bin/python"
 
 function pt() {
@@ -38,8 +38,8 @@ function cop() {
 
 
 # directory aliases
-alias gg="~/gits"
-alias ep="~/gits/easy_post"
+alias gg="cd ~/gits"
+alias ep="cd ~/gits/easy_post"
 alias notes="cd ~/Documents/gits/notes/notes"
 
 

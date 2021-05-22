@@ -44,6 +44,7 @@ Plug 'morhetz/gruvbox'
 "Plug 'sainnhe/gruvbox-material'
 Plug 'habamax/vim-gruvbit'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'vim-scripts/vilight.vim'
 
 call plug#end()
 
