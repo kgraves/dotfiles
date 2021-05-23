@@ -1,0 +1,14 @@
+# print attributes of arg
+alias pi p dir(%1)
+
+# print local symbol table
+alias pl p locals()
+
+# print attribute dict of arg
+alias di %1.__dict__
+
+# dump json of arg
+alias js json.dumps(%1)
+
+
+!import json
