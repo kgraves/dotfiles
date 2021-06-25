@@ -23,6 +23,20 @@ function pt() {
   fi
 }
 
+function bb() {
+  curr_dir=$(basename "$PWD")
+  venv/bin/bandit -ll -r "$curr_dir"
+}
+
+function flk() {
+  dirs=("$(basename "$PWD")")
+
+  [ -d "./test" ] && dirs+=("test")
+  [ -d "./scripts" ] && dirs+=("scripts")
+
+  venv/bin/flake8 "${dirs[@]}"
+}
+
 
 ### ruby specific
 alias rails="withenv vendor/bundle/bundle exec rails s"
