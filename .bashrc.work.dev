@@ -37,10 +37,16 @@ function cop() {
 }
 
 
+### git specific
+alias gd="git diff"
+alias gr="git grep"
+alias gs="git status"
+
+
 # directory aliases
 alias gg="cd ~/gits"
 alias ep="cd ~/gits/easy_post"
-alias notes="cd ~/Documents/gits/notes/notes"
+alias dots="cd ~/gits/dofiles"
 
 
 # friendlier find command
