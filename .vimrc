@@ -114,14 +114,23 @@ set wrap
 "set textwidth=80  " 80 for python, but going to start using 120
 set textwidth=120
 
+
 " backups
 " I don't know if I actually need this anymore. This produces a ton a files and
 " never cleans them up... Maybe clean up files after they get X old?
 set backup
 set noswapfile
-set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
+
+" backward incompatible change in neovim v0.5 necessitates this, see https://github.com/neovim/neovim/issues/14978
+if has('nvim-0.5')  " read: version >= 0.5
+    set undodir=~/.nvim/tmp/undo//
+    set backupdir=~/.nvim/tmp/backup//
+    set directory=~/.nvim/tmp/swap//
+else
+    set undodir=~/.vim/tmp/undo//
+    set backupdir=~/.vim/tmp/backup//
+    set directory=~/.vim/tmp/swap//
+endif
 
 " Make those folders automatically if they don't already exist.
 if !isdirectory(expand(&undodir))
@@ -133,6 +142,7 @@ endif
 if !isdirectory(expand(&directory))
   call mkdir(expand(&directory), "p")
 endif
+
 
 " Color scheme
 
