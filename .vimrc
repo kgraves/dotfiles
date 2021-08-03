@@ -13,7 +13,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
-Plug 'junegunn/fzf' "should be able to remove this b/c ripgrep, need to configure
+Plug 'junegunn/fzf'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }  "should be able to remove this b/c ripgrep, need to configure
 Plug 'junegunn/fzf.vim'
 Plug 'vim-syntastic/syntastic'
@@ -32,19 +32,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/seoul256.vim' "not enough color variety in some cases
 Plug 'morhetz/gruvbox'
-"Plug 'haishanh/night-owl.vim' "too blue
-"Plug 'nikitavoloboev/vim-monokai-night' "a little bright, and erases indent guides
-"Plug 'AlessandroYorba/Alduin' "too much white and yellow
-"Plug 'yorickpeterse/happy_hacking.vim' "too little highlighting
-"Plug 'ajmwagar/vim-deus' "background too bright
-"Plug 'ayu-theme/ayu-vim' "like but needs indent guides colored
-"Plug 'gruvbox-material/vim' "too much color
-"Plug 'kooparse/vim-color-desert-night' "like but may need some more highlighting
-"Plug 'jaywilliams/vim-vwilight'
-"Plug 'sainnhe/gruvbox-material'
-Plug 'habamax/vim-gruvbit'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'vim-scripts/vilight.vim'
 
 call plug#end()
 
@@ -159,16 +146,16 @@ set termguicolors "added for nvim color support
 "(from night-owl.vim readme)
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+"added for deesrt-night colorscheme, but doesn't seem to do anything...
+let g:dark_transp_bg = 1
+
 set background=dark
 
-colorscheme gruvbox
+"colorscheme gruvbox
 "let g:gruvbox_material_background = 'hard'  "suggested for gruvbox-material
 "let g:gruvbox_contrast_dark = 'hard'
 
-"colorscheme gruvbox-material
-"colorscheme gruvbox
-"colorscheme gruvbit
-"colorscheme gruvbox8
+colorscheme desert-night
 
 
 " Use sane regexes.
