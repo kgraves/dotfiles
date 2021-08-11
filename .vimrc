@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged-in')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth'
+"Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }  "should be able to remove this b/c ripgrep, need to configure
 Plug 'junegunn/fzf.vim'
@@ -22,7 +22,7 @@ Plug 'rhysd/committia.vim'
 Plug 'mbbill/undotree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'janko/vim-test'
 Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
@@ -151,11 +151,11 @@ let g:dark_transp_bg = 1
 
 set background=dark
 
-"colorscheme gruvbox
+colorscheme gruvbox
 "let g:gruvbox_material_background = 'hard'  "suggested for gruvbox-material
 "let g:gruvbox_contrast_dark = 'hard'
 
-colorscheme desert-night
+"colorscheme desert-night
 
 
 " Use sane regexes.
