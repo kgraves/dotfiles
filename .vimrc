@@ -211,8 +211,8 @@ let g:fzf_buffers_jump = 1
 " #################
 
 " terminal position
-let test#neovim#term_position = "belowright"
-let test#vim#term_position = "belowright"
+let test#neovim#term_position = "botright"
+let test#vim#term_position = "botright"
 
 " python specific
 let test#strategy = 'neovim'
