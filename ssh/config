@@ -3,12 +3,12 @@ Host */*
 
 Host admin
     # User YOUR_USER_NAME_HERE
-    HostName admin.easypo.net
+    # HostName YOUR_ADMIN_HOSTNAME_HERE
     ForwardAgent yes
 
-Host *.easypo.net
+# Host *.YOUR_HOST_HERE
     # User YOUR_USER_NAME_HERE
-    ForwardAgent yes
+    # ForwardAgent yes
 
 Host *sj
     # User YOUR_USER_NAME_HERE
