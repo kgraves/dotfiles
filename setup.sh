@@ -42,5 +42,8 @@ mkdir -p $INSTALL_DIR/.config
 # ln -snf $PWD/config/redshift.conf $INSTALL_DIR/.config/redshift.conf
 ln -snf $PWD/config/nvim/ $INSTALL_DIR/.config/nvim
 
+# mkdir -p $INSTALL_DIR/.config/pip
+# ln -snf $PWD/config/pip.conf $INSTALL_DIR/.config/pip/pip.conf
+
 mkdir -p $INSTALL_DIR/.ctags.d
 ln -snf $PWD/.ctags.d/exclusions.ctags $INSTALL_DIR/.ctags.d/exclusions.ctags
