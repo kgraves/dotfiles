@@ -24,9 +24,8 @@ Plug 'janko/vim-test'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "lsp plugins
-"Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
 "Plug 'palantir/python-language-server'
-"Plug 'williamboman/nvim-lsp-installer'
 
 "colorschemes
 Plug 'chriskempson/base16-vim'
@@ -248,16 +247,33 @@ nnoremap <leader>gl :Git log<CR>
 
 
 "nvim-lspconfig settings
-" lua << EOF
-" require'lspconfig'.pyright.setup{}
-" vim.lsp.set_log_level("debug")
-" EOF
+lua << EOF
+local lsp_config = require 'lspconfig'
+
+vim.lsp.set_log_level("debug")
+
+lsp_config.pylsp.setup{
+  cmd = { "/home/vagrant/global_venv/bin/pylsp" },
+  settings = {
+    pylsp = {
+      plugins = {
+        configurationsSources = { 'flake8', 'mypy' },
+        flake8 = { enabled = true },
+        mypy = { enabled = true },
+      }
+    }
+  }
+}
+
+lsp_config.vimls.setup{
+  cmd = { '/home/vagrant/global_node_modules/node_modules/.bin/vim-language-server', '--stdio' }
+}
+EOF
 
 
 
 lua << EOF
 -- local lsp_config = require 'lspconfig'
--- local lsp_installer = require 'nvim-lsp-installer'
 -- local gem = require 'nvim-lsp-installer.installers.gem'
 -- local npm = require 'nvim-lsp-installer.installers.npm'
 -- local pip = require 'nvim-lsp-installer.installers.pip3'
@@ -265,27 +281,6 @@ lua << EOF
 -- local path = require "nvim-lsp-installer.path"
 
 -- vim.lsp.set_log_level('debug')
--- lsp_installer.settings({ log_level = vim.log.levels.DEBUG })
-
--- setup vim language server
--- local vimls_root_dir = server.get_server_root_path('vim') -- server is called 'vim' but everythign else is 'vimls'
--- lsp_config.vimls.setup{
-  -- cmd = { npm.executable(vimls_root_dir, 'vim-language-server'), '--stdio' }
--- }
-
--- TODO this was for debugging, can remove once all setup
--- function dump(o)
-   -- if type(o) == 'table' then
-      -- local s = '{ '
-      -- for k,v in pairs(o) do
-         -- if type(k) ~= 'number' then k = '"'..k..'"' end
-         -- s = s .. '['..k..'] = ' .. dump(v) .. ','
-      -- end
-      -- return s .. '} '
-   -- else
-      -- return tostring(o)
-   -- end
--- end
 
 -- setup ruby language server
 
@@ -306,22 +301,6 @@ lua << EOF
     -- -- -- bundlerPath = gem.executable(solargraph_root_dir, 'bundler')
     -- -- bundlerPath = solargraph_bundle_bin_path
   -- -- }
--- }
-
--- setup python language server
--- NOTE: this all works
--- local pylsp_root_dir = server.get_server_root_path('pylsp')
--- lsp_config.pylsp.setup{
-  -- cmd = { pip.executable(pylsp_root_dir, 'pylsp') },
-  -- settings = {
-    -- pylsp = {
-      -- plugins = {
-        -- configurationsSources = { 'flake8', 'mypy' },
-        -- flake8 = { enabled = true },
-        -- mypy = { enabled = true },
-      -- }
-    -- }
-  -- }
 -- }
 
 EOF
