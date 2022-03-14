@@ -253,12 +253,17 @@ local lsp_config = require 'lspconfig'
 vim.lsp.set_log_level("debug")
 
 lsp_config.pylsp.setup{
+  -- cmd_env = { vim.fn.getcwd() },
   cmd = { "/home/vagrant/global_venv/bin/pylsp" },
   settings = {
     pylsp = {
       plugins = {
         configurationsSources = { 'flake8', 'mypy' },
-        flake8 = { enabled = true },
+        flake8 = {
+          enabled = true,
+          -- maxLineLength = 120,
+          -- ignore = { 'E501' },
+        },
         mypy = { enabled = true },
       }
     }
