@@ -34,28 +34,6 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 
-" mappings
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-j> :tabm-1<CR>
-nnoremap <C-k> :tabm+1<CR>
-nnoremap <C-t> :tabe<space>
-nnoremap <tab> %
-vnoremap <tab> %
-nnoremap Q !!sh<CR> "execute current line in shell, replace with results
-
-" iterm thank you (vim only)
-vnoremap <leader>C :'<,'>w !it2copy<CR><CR>
-nnoremap <leader>C :w !it2copy<CR><CR>
-
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" format json/xml blocks
-nnoremap <leader>fj :'<,'>!python -m json.tool<cr>
-nnoremap <leader>fx :'<,'>!xmllint --format -<cr>
-
-
 " Basic Settings
 set encoding=utf-8 nobomb  " don't preprend Byte Order Mark
 set nomodeline  " don't honor modelines in files that are being edited
@@ -100,7 +78,6 @@ set wildignore+=*.DS_STORE,*.db,node_modules/**,*.jpg,*.png,*.gif
 set pastetoggle=<leader>p
 set tabpagemax=20
 
-" Leader
 let mapleader = ","
 let maplocalleader = "\\"
 
@@ -112,6 +89,29 @@ set statusline=%!BuildStatusLine()
 set softtabstop=2  " how many spaces a literal tab character is
 set wrap
 set textwidth=120
+
+
+" mappings
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-j> :tabm-1<CR>
+nnoremap <C-k> :tabm+1<CR>
+nnoremap <C-t> :tabe<space>
+nnoremap <tab> %
+vnoremap <tab> %
+nnoremap Q !!sh<CR> "execute current line in shell, replace with results
+
+
+" iterm thank you (vim only)
+vnoremap <leader>C :'<,'>w !it2copy<CR><CR>
+nnoremap <leader>C :w !it2copy<CR><CR>
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" format json/xml blocks
+nnoremap <leader>fj :'<,'>!python -m json.tool<cr>
+nnoremap <leader>fx :'<,'>!xmllint --format -<cr>
 
 
 " backward incompatible change in neovim v0.5 necessitates this, see https://github.com/neovim/neovim/issues/14978
@@ -203,7 +203,7 @@ let g:vimwiki_list = [{ 'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'
 " mappings
 " I cant quit you :(
 nnoremap <C-p> :Files<CR>
-nnoremap <leader>f :Files<CR>
+"nnoremap <leader>f :Files<CR> " conflicts with my formatting mappings (<leader>fx)
 nnoremap <leader>t :Tags<CR>
 
 
@@ -249,66 +249,30 @@ nnoremap <leader>gl :Git log<CR>
 "nvim-lspconfig settings
 lua << EOF
 local lsp_config = require 'lspconfig'
+local home_dir = vim.loop.os_homedir()
 
 vim.lsp.set_log_level("debug")
 
 lsp_config.pylsp.setup{
-  -- cmd_env = { vim.fn.getcwd() },
-  cmd = { "/home/vagrant/global_venv/bin/pylsp" },
+  cmd = { home_dir .. "/global_venv/bin/pylsp" },
   settings = {
     pylsp = {
       plugins = {
-        configurationsSources = { 'flake8', 'mypy' },
-        flake8 = {
-          enabled = true,
-          -- maxLineLength = 120,
-          -- ignore = { 'E501' },
-        },
+        -- TODO: most likely can change what's installed with pylsp to not have to disable all of this.
+        configurationSources = { 'flake8', 'mypy' },
+        flake8 = { enabled = true },
         mypy = { enabled = true },
+        pycodestyle = { enabled = false },
       }
     }
   }
 }
 
 lsp_config.vimls.setup{
-  cmd = { '/home/vagrant/global_node_modules/node_modules/.bin/vim-language-server', '--stdio' }
+  cmd = { home_dir .. '/global_node_modules/node_modules/.bin/vim-language-server', '--stdio' }
 }
 EOF
 
-
-
-lua << EOF
--- local lsp_config = require 'lspconfig'
--- local gem = require 'nvim-lsp-installer.installers.gem'
--- local npm = require 'nvim-lsp-installer.installers.npm'
--- local pip = require 'nvim-lsp-installer.installers.pip3'
--- local server = require 'nvim-lsp-installer.server'
--- local path = require "nvim-lsp-installer.path"
-
--- vim.lsp.set_log_level('debug')
-
--- setup ruby language server
-
--- local solargraph_bin_dir = gem.executable(server.get_server_root_path('solargraph'))
--- local solargraph_bundle_bin_path = solargraph_bin_dir .. '/bundler'
-
--- lsp_config.solargraph.setup{
-  -- cmd = {
-    -- solargraph_bundle_bin_path,
-    -- 'exec solargraph',
-    -- '--stdio',
-  -- },
-  -- extra = {
-    -- cwd = server.get_server_root_path('solargraph'),
-  -- },
-  -- cmd_env = gem.env(server.get_server_root_path('solargraph')),
-  -- -- settings = {
-    -- -- -- bundlerPath = gem.executable(solargraph_root_dir, 'bundler')
-    -- -- bundlerPath = solargraph_bundle_bin_path
-  -- -- }
--- }
-
-EOF
 
 
 "treesitter settings
