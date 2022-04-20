@@ -52,9 +52,16 @@ function cop() {
 
 
 ### git specific
+alias gb="git branch"
+alias gc="git commit"
+alias gca="git commit --amend"
+alias gco="git checkout"
+alias gcb="git checkout -b"
 alias gd="git diff"
 alias gr="git grep"
 alias gs="git status"
+alias gp="git pull"
+alias gpm="git pull origin master"
 
 
 # directory aliases
