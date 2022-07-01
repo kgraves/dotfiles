@@ -39,6 +39,7 @@ function flk() {
 
 
 ### ruby specific
+alias be="withenv vendor/bundle/bundle exec"
 alias rails="withenv vendor/bundle/bundle exec rails s"
 
 function rspec() {
@@ -87,4 +88,9 @@ then
     export EDITOR=nvim
 else
     export EDITOR=vim
+fi
+
+GIT_COMPL_FILE=/etc/bash_completion.d/git
+if [[ -f $GIT_COMPL_FILE ]]; then
+    source $GIT_COMPL_FILE
 fi

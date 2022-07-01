@@ -110,8 +110,10 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " format json/xml blocks
-nnoremap <leader>fj :'<,'>!python -m json.tool<cr>
+nnoremap <leader>fj :'<,'>!python3 -m json.tool<cr>
 nnoremap <leader>fx :'<,'>!xmllint --format -<cr>
+nnoremap <leader>ffj :%!python3 -m json.tool<cr>
+nnoremap <leader>ffx :%!xmllint --format -<cr>
 
 
 " backward incompatible change in neovim v0.5 necessitates this, see https://github.com/neovim/neovim/issues/14978
@@ -150,6 +152,7 @@ colorscheme gruvbox
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 70
 
 "
 "fzf + fzf.vim settings
