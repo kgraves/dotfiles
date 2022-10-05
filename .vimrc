@@ -19,6 +19,7 @@ Plug 'mbbill/undotree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'janko/vim-test'
+Plug 'Roguelazer/variables_file.vim'
 "Plug 'vimwiki/vimwiki'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

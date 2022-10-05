@@ -51,6 +51,14 @@ function cop() {
   withenv vendor/bundle/bundle exec rake easycop:phab "$@"
 }
 
+function cln() {
+  be rails runner script/vcr_cassette_cleaner.rb --clean-yaml-binary --no-dry-run "$@"
+}
+
+function drycln() {
+  be rails runner script/vcr_cassette_cleaner.rb --clean-yaml-binary "$@"
+}
+
 
 ### git specific
 alias gb="git branch"
@@ -68,6 +76,7 @@ alias gpm="git pull origin master"
 # directory aliases
 alias gg="cd ~/gits"
 alias ep="cd ~/gits/easy_post"
+alias trk="cd ~/gits/tracking"
 alias dots="cd ~/gits/dofiles"
 
 
