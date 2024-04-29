@@ -12,7 +12,6 @@ Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-"Plug 'vim-syntastic/syntastic' "syntax chceking and per-line markers
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/committia.vim'
 Plug 'mbbill/undotree'
@@ -23,6 +22,8 @@ Plug 'Roguelazer/variables_file.vim'
 "Plug 'vimwiki/vimwiki'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'lanej/vim-phabricator'
+Plug 'ojroques/nvim-osc52'
 
 "lsp plugins
 Plug 'neovim/nvim-lspconfig'
@@ -102,19 +103,21 @@ nnoremap <tab> %
 vnoremap <tab> %
 nnoremap Q !!sh<CR> "execute current line in shell, replace with results
 
-
-" iterm thank you (vim only)
-vnoremap <leader>C :'<,'>w !it2copy<CR><CR>
-nnoremap <leader>C :w !it2copy<CR><CR>
-
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" format json/xml blocks
+" format json
 nnoremap <leader>fj :'<,'>!python3 -m json.tool<cr>
-nnoremap <leader>fx :'<,'>!xmllint --format -<cr>
 nnoremap <leader>ffj :%!python3 -m json.tool<cr>
+
+" format xml
+nnoremap <leader>fx :'<,'>!xmllint --format -<cr>
 nnoremap <leader>ffx :%!xmllint --format -<cr>
+
+" base64 decode
+nnoremap <leader>db :'<,'>!base64 -d<cr>
+nnoremap <leader>fdb :%!base64 -d<cr>
+
 
 
 " backward incompatible change in neovim v0.5 necessitates this, see https://github.com/neovim/neovim/issues/14978
@@ -211,13 +214,31 @@ nnoremap <C-p> :Files<CR>
 nnoremap <leader>t :Tags<CR>
 
 
-" syntastic settings
-"let g:syntastic_always_populate_loc_list = 0
-"let g:syntastic_auto_loc_list = 2  " this is the default
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_auto_jump = 0  " don't auto jump; really annoying for python
-"let g:syntastic_python_python_exec = 'python3'
+
+" nvim-osc52 settings
+
+lua << EOF
+local function copy(lines, _)
+  require('osc52').copy(table.concat(lines, '\n'))
+end
+
+local function paste()
+  return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
+end
+
+vim.g.clipboard = {
+  name = 'osc52',
+  copy = {['+'] = copy, ['*'] = copy},
+  -- not sure if I need this paste part...
+  paste = {['+'] = paste, ['*'] = paste},
+}
+
+-- Now the '+' register will copy to system clipboard using OSC52
+vim.keymap.set('n', '<leader>c', '"+y')
+vim.keymap.set('v', '<leader>c', '"+y')
+vim.keymap.set('n', '<leader>cc', '"+yy')
+EOF
+
 
 
 " status line
@@ -272,9 +293,22 @@ lsp_config.pylsp.setup{
   }
 }
 
-lsp_config.vimls.setup{
-  cmd = { home_dir .. '/global_node_modules/node_modules/.bin/vim-language-server', '--stdio' }
-}
+-- lsp_config.vimls.setup{
+--   cmd = { home_dir .. '/global_node_modules/node_modules/.bin/vim-language-server', '--stdio' }
+-- }
+EOF
+
+
+"vim-phabricator settings
+let g:phabricator_hosts = ["phab.easypo.net"]
+
+lua << EOF
+-- NOTE: relies on nvim-osc52 clipboard override; GBrowse! sets the '+' reg.
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set('n', '<leader>br', function() vim.cmd('GBrowse!') end, opts)
+-- this format bc using vim.cmd didn't get selection correctly nor deselect/exit visual mode
+vim.keymap.set('v', '<leader>br', ':GBrowse!<CR>', opts)
 EOF
 
 
