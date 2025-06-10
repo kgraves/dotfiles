@@ -1,24 +1,9 @@
 Host */*
     ProxyCommand ssh -qax $(dirname %h) nc6 -q 1 -w 1 $(basename %h) %p
 
-Host admin
-    # User YOUR_USER_NAME_HERE
-    # HostName YOUR_ADMIN_HOSTNAME_HERE
-    ForwardAgent yes
-
 # Host *.YOUR_HOST_HERE
     # User YOUR_USER_NAME_HERE
     # ForwardAgent yes
-
-Host *sj
-    # User YOUR_USER_NAME_HERE
-    ForwardAgent yes
-    ProxyCommand ssh -qax admin nc6 -q 1 -w 1 %h %p
-
-Host *wdc
-    # User YOUR_USER_NAME_HERE
-    ForwardAgent yes
-    ProxyCommand ssh -qax admin nc6 -q 1 -w 1 %h %p
 
 Host *
     VisualHostKey yes
@@ -28,4 +13,4 @@ Host *
     ForwardAgent no
     UseRoaming no
     AddKeysToAgent yes
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
