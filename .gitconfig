@@ -1,6 +1,6 @@
 [user]
-  name = Kyle Graves
-  email = kyle@easypost.com
+  name = kg
+  email = ice0age0coming@gmail.com
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
@@ -62,6 +62,3 @@
   uc = reset --soft HEAD^
   # unstage changes / undo stage
   us = reset HEAD
-
-[log]
-  excludeDecoration = refs/tags/phabricator/*
