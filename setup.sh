@@ -19,6 +19,22 @@ else
   echo "skipping .bashrc, a non-symlink already exists"
 fi
 
+ZSH_RC="$INSTALL_DIR/.zshrc"
+if [[ ! -f $ZSH_RC ]];
+then
+  ln -snf $PWD/.zshrc $ZSH_RC
+else
+  echo "skipping .zshrc, a non-symlink already exists"
+fi
+
+ZPROFILE="$INSTALL_DIR/.zprofile"
+if [[ ! -f $ZPROFILE ]];
+then
+  ln -snf $PWD/.zprofile $ZPROFILE
+else
+  echo "skipping .zprofile, a non-symlink already exists"
+fi
+
 # source these from existing or own .bashrc
 ln -snf $PWD/.bashrc.personal $INSTALL_DIR/.bashrc.personal
 ln -snf $PWD/.bashrc.work.dev $INSTALL_DIR/.bashrc.work.dev
@@ -32,15 +48,15 @@ ln -snf $PWD/.pdbrc $INSTALL_DIR/.pdbrc
 
 # TODO this is only needed on my host machine, but other stuff for my dev env.
 #      I'm thinking about splitting this out into different scripts for different envs.
-# mkdir -p $INSTALL_DIR/.ssh
-# ln -snf $PWD/ssh/config $INSTALL_DIR/.ssh/config
+mkdir -p $INSTALL_DIR/.ssh
+ln -snf $PWD/ssh/config $INSTALL_DIR/.ssh/config
 # # will inherit dir permissions, which ssh gets mad about
-# chmod 644 $INSTALL_DIR/.ssh/config
+chmod 644 $INSTALL_DIR/.ssh/config
 
 # TODO won't hurt anything as-is, but could be os specific
-mkdir -p $INSTALL_DIR/.config
+mkdir -p $INSTALL_DIR/.config/nvim
 # ln -snf $PWD/config/redshift.conf $INSTALL_DIR/.config/redshift.conf
-ln -snf $PWD/config/nvim/ $INSTALL_DIR/.config/nvim
+ln -snf $PWD/config/nvim/init.vim $INSTALL_DIR/.config/nvim/init.vim
 
 # mkdir -p $INSTALL_DIR/.config/pip
 # ln -snf $PWD/config/pip.conf $INSTALL_DIR/.config/pip/pip.conf
