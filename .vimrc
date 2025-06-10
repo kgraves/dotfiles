@@ -22,7 +22,6 @@ Plug 'Roguelazer/variables_file.vim'
 "Plug 'vimwiki/vimwiki'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'lanej/vim-phabricator'
 Plug 'ojroques/nvim-osc52'
 
 "lsp plugins
@@ -292,15 +291,8 @@ lsp_config.pylsp.setup{
     }
   }
 }
-
--- lsp_config.vimls.setup{
---   cmd = { home_dir .. '/global_node_modules/node_modules/.bin/vim-language-server', '--stdio' }
--- }
 EOF
 
-
-"vim-phabricator settings
-let g:phabricator_hosts = ["phab.easypo.net"]
 
 lua << EOF
 -- NOTE: relies on nvim-osc52 clipboard override; GBrowse! sets the '+' reg.
