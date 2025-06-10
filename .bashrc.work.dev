@@ -8,11 +8,11 @@ alias np="nvim -p"
 ### python specific
 alias aa="source ./venv/bin/activate"
 alias da="deactivate"
-alias py3="/opt/python3.10/bin/python3"
-alias py310="/opt/python3.10/bin/python3"
-alias py39="/opt/python3.9/bin/python3"
-alias py38="/opt/python3.8/bin/python3"
-alias py37="/opt/python3.7/bin/python3"
+# alias py3="/opt/python3.10/bin/python3"
+# alias py310="/opt/python3.10/bin/python3"
+# alias py39="/opt/python3.9/bin/python3"
+# alias py38="/opt/python3.8/bin/python3"
+# alias py37="/opt/python3.7/bin/python3"
 alias vpy="venv/bin/python"
 
 function pt() {
@@ -22,9 +22,9 @@ function pt() {
 
   if [ $# -eq 0 ]
   then
-    withenv venv/bin/py.test "${test_dirs[@]}"
+    venv/bin/py.test "${test_dirs[@]}"
   else
-    withenv venv/bin/py.test "${test_dirs[@]}" -k "$@"
+    venv/bin/py.test "${test_dirs[@]}" -k "$@"
   fi
 }
 
@@ -45,24 +45,12 @@ function flk() {
 
 
 ### ruby specific
-alias be="withenv vendor/bundle/bundle exec"
-alias rails="withenv vendor/bundle/bundle exec rails s"
+alias be="vendor/bundle/bundle exec"
+alias rails="vendor/bundle/bundle exec rails s"
 
 function rspec() {
   # TODO will need to check for other ruby services, invoke rspec differently
-  withenv vendor/bundle/bundle exec rspec "$@"
-}
-
-function cop() {
-  withenv vendor/bundle/bundle exec rake easycop:phab "$@"
-}
-
-function cln() {
-  be rails runner script/vcr_cassette_cleaner.rb --clean-yaml-binary --no-dry-run "$@"
-}
-
-function drycln() {
-  be rails runner script/vcr_cassette_cleaner.rb --clean-yaml-binary "$@"
+  vendor/bundle/bundle exec rspec "$@"
 }
 
 
@@ -81,12 +69,6 @@ alias gpm="git pull origin master"
 
 # directory aliases
 alias gg="cd ~/gits"
-alias ep="cd ~/gits/easy_post"
-alias trk="cd ~/gits/tracking"
-alias ec="cd ~/gits/easycarrier"
-alias sp="cd ~/gits/easycarrier_schemas_pydantic"
-alias sc="cd ~/gits/easycarrier_schemas_colander"
-alias cif="cd ~/gits/python_carrier_integrations"
 alias dots="cd ~/gits/dofiles"
 
 
@@ -113,14 +95,3 @@ GIT_COMPL_FILE=/etc/bash_completion.d/git
 if [[ -f $GIT_COMPL_FILE ]]; then
     source $GIT_COMPL_FILE
 fi
-
-# rEP update alias, bc partitioning command fails sometimes
-function epup {
-  make config/environments/development.rb vendor/bundle ~/.bundle/easy_post/installed_gems test-db
-  withenv vendor/bundle/bundle exec rake db:migrate
-}
-
-# helping w/ request comparisons
-function rc {
-  py39 -c "import base64, zlib, sys; print( zlib.decompress(base64.b64decode(sys.stdin.read())).decode() )" <<< "$1"
-}
