@@ -8,6 +8,7 @@ Plug('tpope/vim-rhubarb')
 Plug('tpope/vim-commentary')
 Plug('junegunn/fzf')
 Plug('junegunn/fzf.vim')
+Plug('nvim-telescope/telescope.nvim', {['rev'] = '0.1.x'})
 Plug('editorconfig/editorconfig-vim')
 Plug('rhysd/committia.vim')
 Plug('mbbill/undotree')
@@ -128,11 +129,6 @@ vim.keymap.set('n', '<leader>ffx', ':%!xmllint --format -<cr>', { noremap = true
 vim.keymap.set('v', '<leader>db', ':\'<,\'>!base64 -d<cr>', { noremap = true})
 vim.keymap.set('n', '<leader>fdb', ':%!base64 -d<cr>', { noremap = true})
 
--- I cant quit you :(
-vim.keymap.set('n', '<C-p>', ':Files<CR>', { noremap = true})
--- nnoremap <leader>f :Files<CR> " conflicts with my formatting mappings (<leader>fx)
-vim.keymap.set('n', '<leader>t', ':Tags<CR>', { noremap = true})
-
 -- better regex support for search
 vim.keymap.set('n', '/', '/\\v', { noremap = true})
 vim.keymap.set('v', '/', '/\\v', { noremap = true})
@@ -185,6 +181,35 @@ vim.g.fzf_action = {
 vim.g.fzf_layout = { ['down'] = "~40%" }
 vim.g.fzf_preview_window = {}  -- Empty value to disable preview window altogether
 vim.g.fzf_buffers_jump = 1  -- [Buffers] Jump to the existing window if possible
+
+-- I cant quit you :(
+-- vim.keymap.set('n', '<C-p>', ':Files<CR>', { noremap = true})
+-- nnoremap <leader>f :Files<CR> " conflicts with my formatting mappings (<leader>fx)
+vim.keymap.set('n', '<leader>t', ':Tags<CR>', { noremap = true})
+
+
+
+-- telescope settings
+require('telescope').setup({
+  defaults = {
+    mappings = {
+      i = {
+        ['<C-s>'] = 'select_horizontal'
+      },
+      n = {
+        ['<C-s>'] = 'select_horizontal'
+      }
+    }
+  }
+})
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<C-f>', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>gg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<C-g>', builtin.live_grep, { desc = 'Telescope live grep' })
 
 
 
@@ -247,7 +272,7 @@ local home_dir = vim.loop.os_homedir()
 
 vim.lsp.set_log_level("debug")
 
-lsp_config.pylsp.setup{
+lsp_config.pylsp.setup {
   cmd = { home_dir .. "/global_venv/bin/pylsp" },
   settings = {
     pylsp = {
