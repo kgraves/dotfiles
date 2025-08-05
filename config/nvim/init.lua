@@ -190,6 +190,7 @@ vim.keymap.set('n', '<leader>t', ':Tags<CR>', { noremap = true})
 
 
 -- telescope settings
+-- TODO: use nvim-telescope/telescope-fzf-native.nvim
 require('telescope').setup({
   defaults = {
     mappings = {
