@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged-in')
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf'
@@ -18,7 +19,6 @@ Plug 'mbbill/undotree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'janko/vim-test'
-Plug 'Roguelazer/variables_file.vim'
 "Plug 'vimwiki/vimwiki'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -39,15 +39,8 @@ call plug#end()
 set encoding=utf-8 nobomb  " don't preprend Byte Order Mark
 set nomodeline  " don't honor modelines in files that are being edited
 set showmode
-set showcmd
-set hidden
-set novb
-set noeb
-set ttyfast
 set undofile
 set undoreload=10000
-set nofoldenable  " turn off folds
-set autoread
 set cursorline
 set magic
 set nobackup
@@ -63,13 +56,12 @@ set list
 
 set linebreak  " wrap lines more intelligently (at specific chars)
 set colorcolumn=+1  " highlight 1 column after `textwidth`
-set nu
+set number
 
 set ignorecase " ignore case for search
 set smartcase " ignore casing for search unless there are caps
 set showmatch " blink the matching paren/bracket when closing
 set matchtime=2
-set hlsearch " highlight search matches
 set gdefault " sets 'g' flag automatically for substitutions
 
 set wildchar=<TAB>
