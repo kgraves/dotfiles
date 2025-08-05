@@ -55,8 +55,9 @@ chmod 644 $INSTALL_DIR/.ssh/config
 
 # TODO won't hurt anything as-is, but could be os specific
 mkdir -p $INSTALL_DIR/.config/nvim
-# ln -snf $PWD/config/redshift.conf $INSTALL_DIR/.config/redshift.conf
 ln -snf $PWD/config/nvim/init.vim $INSTALL_DIR/.config/nvim/init.vim
+ln -snf $PWD/config/nvim/init.lua $INSTALL_DIR/.config/nvim/init.lua
+# ln -snf $PWD/config/redshift.conf $INSTALL_DIR/.config/redshift.conf
 
 # mkdir -p $INSTALL_DIR/.config/pip
 # ln -snf $PWD/config/pip.conf $INSTALL_DIR/.config/pip/pip.conf
