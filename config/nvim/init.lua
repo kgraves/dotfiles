@@ -8,6 +8,7 @@ Plug('tpope/vim-rhubarb')
 Plug('tpope/vim-commentary')
 Plug('junegunn/fzf')
 Plug('junegunn/fzf.vim')
+Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'make'})
 Plug('nvim-telescope/telescope.nvim', {['rev'] = '0.1.x'})
 Plug('editorconfig/editorconfig-vim')
 Plug('rhysd/committia.vim')
@@ -191,7 +192,9 @@ vim.keymap.set('n', '<leader>t', ':Tags<CR>', { noremap = true})
 
 -- telescope settings
 -- TODO: use nvim-telescope/telescope-fzf-native.nvim
-require('telescope').setup({
+local telescope = require('telescope')
+telescope.load_extension('fzf')
+telescope.setup({
   defaults = {
     mappings = {
       i = {
